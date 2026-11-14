@@ -1,0 +1,285 @@
+sh-5.3$ /bin/python3 /home/leonid/Main/vscodium/MachineLearning/Lab2/main.py
+Размер выборки: (261384, 122) # Объекты признаки
+
+Первые 5 строк:
+   reco_id_curr  target contract_type_name gender own_car_flag  ...  requests_bki_day  requests_bki_week  requests_bki_month  requests_bki_qrt  requests_bki_year
+0        384575       0         Cash loans      M            Y  ...               0.0                0.0                 1.0               0.0                1.0
+1        214010       0         Cash loans      F            Y  ...               0.0                0.0                 1.0               0.0                3.0
+2        142232       0         Cash loans      F            Y  ...               0.0                0.0                 1.0               0.0                3.0
+3        389171       0         Cash loans      F            N  ...               0.0                0.0                 0.0               0.0                0.0
+4        283617       0         Cash loans      M            N  ...               0.0                0.0                 0.0               0.0                4.0
+
+[5 rows x 122 columns]
+
+Информация о типах данных:
+<class 'pandas.DataFrame'>
+RangeIndex: 261384 entries, 0 to 261383
+Columns: 122 entries, reco_id_curr to requests_bki_year
+dtypes: float64(65), int64(41), str(16)
+memory usage: 243.3 MB
+None
+
+Описательная статистика:
+        reco_id_curr         target  children_count        income  ...  requests_bki_week  requests_bki_month  requests_bki_qrt  requests_bki_year
+count  261384.000000  261384.000000   261384.000000  2.613840e+05  ...      226150.000000       226150.000000     226150.000000      226150.000000
+mean   278231.764186       0.080762        0.417665  1.689238e+05  ...           0.034442            0.266827          0.265076           1.900000
+std    102770.523515       0.272470        0.723263  2.537912e+05  ...           0.205633            0.913951          0.821481           1.870089
+min    100002.000000       0.000000        0.000000  2.565000e+04  ...           0.000000            0.000000          0.000000           0.000000
+25%    189205.750000       0.000000        0.000000  1.125000e+05  ...           0.000000            0.000000          0.000000           0.000000
+50%    278323.500000       0.000000        0.000000  1.485000e+05  ...           0.000000            0.000000          0.000000           1.000000
+75%    367161.250000       0.000000        1.000000  2.025000e+05  ...           0.000000            0.000000          0.000000           3.000000
+max    456255.000000       1.000000       19.000000  1.170000e+08  ...           8.000000           27.000000        261.000000          25.000000
+
+----
+mean - среднее
+std - среднее отклонение
+50 - медиана
+max - максимальное значение, в том числе и выброс
+----
+
+[8 rows x 106 columns]
+
+Количество пропусков в каждой колонке:
+average_commonarea            182677
+mode_commonarea               182677
+median_commonarea             182677
+non_living_apartments_medi    181529
+non_living_apartments_mode    181529
+non_living_apartments_avg     181529
+fondkapremon_mode             178802
+average_living_apartments     178738
+median_living_apartments      178738
+mode_living_apartments        178738
+mode_min_floors               177428
+average_min_floors            177428
+median_min_floors             177428
+average_years_building        173901
+mode_years_building           173901
+median_years_building         173901
+age_own_car                   172541
+median_land_area              155214
+average_land_area             155214
+mode_land_area                155214
+dtype: int64
+
+Распределение целевой переменной:
+target
+0    0.919238
+1    0.080762
+Name: proportion, dtype: float64
+
+Колонки с пропусками > 50%, будут удалены:
+['age_own_car', 'external_source_1', 'average_apartments', 'average_basementarea', 'average_years_building', 'average_commonarea', 'average_elevator_count', 'average_entrance_count', 'average_min_floors', 'average_land_area', 'average_living_apartments', 'average_living_area', 'non_living_apartments_avg', 'non_living_area_avg', 'mode_apartments', 'mode_basementarea', 'mode_years_building', 'mode_commonarea', 'mode_elevator_count', 'mode_entrance_count', 'mode_min_floors', 'mode_land_area', 'mode_living_apartments', 'mode_living_area', 'non_living_apartments_mode', 'non_living_area_mode', 'median_apartments', 'median_basementarea', 'median_years_building', 'median_commonarea', 'median_elevator_count', 'median_entrance_count', 'median_min_floors', 'median_land_area', 'median_living_apartments', 'median_living_area', 'non_living_apartments_medi', 'non_living_area_medi', 'fondkapremon_mode', 'mode_house_type', 'mode_walls_material']
+
+Размер обучающей выборки: (182968, 79)
+Размер контрольной выборки: (78416, 79)
+
+Заполнение пропусков статистикой из train...
+Пропуски в train после обработки: 0
+Пропуски в test после обработки: 0
+
+Размер X_train после кодирования: (182968, 179)
+Размер X_test после кодирования: (78416, 179)
+Доля класса 1 в train: 0.08076275632897556
+Доля класса 1 в test: 0.08076157926953682
+---
+кодирование - это one-hot encoding (берём строковую колонку и для каждого из значений в колонке делаем булевую колонку)
+----
+
+----------
+Проверка на искусственном примере
+----------
+
+Родительский узел (все 10 объектов):
+Метки: [1 1 1 0 0 1 0 1 0 0]
+Энтропия: 1.0
+Индекс Джини: 0.5
+
+Разбиение: признак <= 2.5
+Левый узел (5 объектов): [1 0 0 0 0]
+Правый узел (5 объектов): [1 1 0 1 1]
+
+По энтропии:
+  Энтропия родителя: 1.0000
+  Взвешенная энтропия детей: 0.7219
+  Прирост информации: 0.2781
+
+По индексу Джини:
+  Джини родителя: 0.5000
+  Взвешенный Джини детей: 0.3200
+  Прирост информации: 0.1800
+
+----------
+Расчёт на реальном узле обучающей выборки
+----------
+
+Подмножество: 100 объектов
+Распределение target: 0=94, 1=6
+
+Энтропия родительского узла: 0.3274
+Индекс Джини родительского узла: 0.1128
+
+Выбранный признак: 'income', порог = 157500.00 (медиана)
+Левый узел: 55 объектов, распределение 0/1 = 53/2
+Правый узел: 45 объектов, распределение 0/1 = 41/4
+
+По энтропии:
+  Энтропия родителя: 0.3274
+  Взвешенная энтропия детей: 0.3187
+  Прирост информации: 0.0088
+
+По индексу Джини:
+  Джини родителя: 0.1128
+  Взвешенный Джини детей: 0.1114
+  Прирост информации: 0.0014
+
+Вывод: прирост информации 0.0088 (энтропия) показывает, что разбиение по признаку 'income' с порогом 157500.00 уменьшает неопределённость. Чем больше прирост — тем лучше разбиение.
+----------
+2.3.1 Сравнение критериев gini и entropy
+----------
+
+Критерий GINI:
+  Accuracy на train: 1.0000
+  Accuracy на test:  0.8530
+
+Критерий ENTROPY:
+  Accuracy на train: 1.0000
+  Accuracy на test:  0.8564
+
+----------
+2.3.2 Подбор гиперпараметров (оптимизация по F1-score)
+----------
+
+Подбираем max_depth...
+  Обучение модели с max_depth = 1 ...
+  Обучение модели с max_depth = 2 ...
+  Обучение модели с max_depth = 3 ...
+  Обучение модели с max_depth = 4 ...
+  Обучение модели с max_depth = 5 ...
+  Обучение модели с max_depth = 6 ...
+  Обучение модели с max_depth = 7 ...
+  Обучение модели с max_depth = 8 ...
+  Обучение модели с max_depth = 9 ...
+  Обучение модели с max_depth = 10 ...
+  Обучение модели с max_depth = 11 ...
+  Обучение модели с max_depth = 12 ...
+  Обучение модели с max_depth = 13 ...
+  Обучение модели с max_depth = 14 ...
+  Обучение модели с max_depth = 15 ...
+  Обучение модели с max_depth = 16 ...
+  Обучение модели с max_depth = 17 ...
+  Обучение модели с max_depth = 18 ...
+  Обучение модели с max_depth = 19 ...
+  Обучение модели с max_depth = 20 ...
+
+Подбираем min_samples_leaf...
+  Обучение модели с min_samples_leaf = 1 ...
+  Обучение модели с min_samples_leaf = 5 ...
+  Обучение модели с min_samples_leaf = 10 ...
+  Обучение модели с min_samples_leaf = 20 ...
+  Обучение модели с min_samples_leaf = 50 ...
+  Обучение модели с min_samples_leaf = 100 ...
+  Обучение модели с min_samples_leaf = 200 ...
+  Обучение модели с min_samples_leaf = 500 ...
+
+График сохранен в файл 'зависимость_от_гиперпараметров_f1.png'
+
+Лучший max_depth: 20 (test F1-score = 0.1279)
+Лучший min_samples_leaf: 5 (test F1-score = 0.1529)
+
+----------
+2.3.3 Визуализация настроенного дерева
+----------
+Accuracy настроенной модели на train: 0.9416
+Accuracy настроенной модели на test: 0.8885
+
+----------
+2.3.4 Интерпретация правил для 2 объектов
+----------
+
+Объект #0 из тестовой выборки:
+  Истинный класс: 0
+  Предсказанный класс: 1
+  Путь по дереву:
+    Узел 0: external_source_3 <= 0.31 ?
+    Узел 3490: external_source_2 <= 0.40 ?
+    Узел 3491: external_source_3 <= 0.56 ?
+    Узел 3492: external_source_2 <= 0.15 ?
+    Узел 3493: external_source_2 <= 0.01 ?
+    Узел 3569: days_birth <= -17901.50 ?
+    Узел 3570: income <= 192375.00 ?
+    Узел 3571: type_of_organization_Security <= 0.50 ?
+    Узел 3572: external_source_2 <= 0.02 ?
+    Узел 3592: not_work_region_reg_region <= 0.50 ?
+    Узел 3593: annuity_payment <= 18276.75 ?
+    Узел 3655: registration_timestamp <= -11957.50 ?
+    Узел 3671: mode_total_area <= 0.08 ?
+    Узел 3672: family_status_name_Married <= 0.50 ?
+    Узел 3673: rating_client_w_city_region <= 2.50 ?
+    Узел 3693: external_source_2 <= 0.08 ?
+    Узел 3694: loan_body <= 452945.25 ?
+    -> ЛИСТ (узел 3695)
+
+Объект #1 из тестовой выборки:
+  Истинный класс: 0
+  Предсказанный класс: 0
+  Путь по дереву:
+    Узел 0: external_source_3 <= 0.31 ?
+    Узел 3490: external_source_2 <= 0.40 ?
+    Узел 7164: external_source_3 <= 0.55 ?
+    Узел 10130: external_source_2 <= 0.62 ?
+    Узел 10131: days_birth <= -17234.50 ?
+    Узел 10132: gender_M <= 0.50 ?
+    Узел 10133: publication_timestamp <= -4129.50 ?
+    Узел 10134: external_source_3 <= 0.58 ?
+    Узел 10168: registration_timestamp <= -4.50 ?
+    Узел 10169: type_suite_name_Family <= 0.50 ?
+    Узел 10170: document_3_flag <= 0.50 ?
+    Узел 10212: external_source_3 <= 0.62 ?
+    -> ЛИСТ (узел 10220)
+----------
+2.4 Оценка качества модели
+----------
+
+--- БАЗОВАЯ МОДЕЛЬ ---
+Accuracy - Доля правильных ответов
+Precision - Точность предсказания
+Recall - Из всех 1 (пример), какую долю 1 смогла найти модель
+F1-score - баланс между Precision и Recall
+
+Обучающая выборка:
+  Accuracy:  1.0000
+  Precision: 1.0000
+  Recall:    1.0000
+  F1-score:  1.0000
+
+
+
+Контрольная выборка:
+  Accuracy:  0.8530
+  Precision: 0.1371
+  Recall:    0.1551
+  F1-score:  0.1455
+
+--- НАСТРОЕННАЯ МОДЕЛЬ (max_depth=20, min_samples_leaf=5) ---
+
+Обучающая выборка:
+  Accuracy:  0.9416
+  Precision: 0.7406
+  Recall:    0.4253
+  F1-score:  0.5403
+
+Контрольная выборка:
+  Accuracy:  0.8885
+  Precision: 0.1880
+  Recall:    0.1148
+  F1-score:  0.1425
+
+
+
+
+1. Базовая модель без ограничений показывает F1-score на train = 1.0000 и на test = 0.1455.
+   Большая разница между train и test говорит о ПЕРЕОБУЧЕНИИ.
+
+2. После подбора гиперпараметров (max_depth=20, min_samples_leaf=5) F1-score на test = 0.1425.
+   Качество на контрольной выборке по F1-score изменилось на -0.0030.
