@@ -1,0 +1,158 @@
+Кол-во объектов: 261384
+Кол-во признаков: 122
+
+Типы данных:
+float64    65
+int64      41
+str        16
+Name: count, dtype: int64
+
+Распределение целевой переменной target:
+target
+0    240274
+1     21110
+Name: count, dtype: int64
+Доля положительного класса: 0.0808
+
+Признаки с пропущенными значениями (топ-20):
+                                 Пропуски    Процент
+age_own_car                        172541  66.010544
+annuity_payment                        11   0.004208
+average_apartments                 132624  50.739142
+average_basementarea               152928  58.507024
+average_commonarea                 182677  69.888363
+average_elevator_count             139268  53.280997
+average_entrance_count             131519  50.316393
+average_land_area                  155214  59.381599
+average_living_apartments          178738  68.381385
+average_living_area                131149  50.174839
+average_max_floors                 129980  49.727604
+average_min_floors                 177428  67.880207
+average_years_beginexpluatation    127461  48.763888
+average_years_building             173901  66.530851
+emergency_state_mode               123852  47.383160
+external_source_1                  147388  56.387537
+external_source_2                     559   0.213862
+external_source_3                   51700  19.779328
+family_members__count                   2   0.000765
+fondkapremon_mode                  178802  68.405870
+
+Всего признаков с пропусками: 67
+
+Доля дубликатов: 0.0000
+Кол-во дубликатов: 0
+
+Кол-во числовых признаков: 106
+
+Описательные статистики ключевых признаков:
+                    count           mean            std      min       25%       50%       75%          max
+income           261384.0  168923.794050  253791.189637  25650.0  112500.0  148500.0  202500.0  117000000.0
+loan_body        261384.0  599186.557651  402330.879558  45000.0  270000.0  513531.0  808650.0    4050000.0
+annuity_payment  261373.0   27106.793293   14486.790495   1615.5   16537.5   24903.0   34596.0     258025.5
+goods_price      261152.0  538565.192683  369284.940828  40500.0  238500.0  450000.0  679500.0    4050000.0
+days_birth       261384.0  -16034.247341    4365.115766 -25201.0  -19682.0  -15744.0  -12407.0      -7489.0
+days_employed    261384.0   63867.624675  141317.267570 -17912.0   -2758.0   -1213.0    -289.0     365243.0
+/home/leonid/Main/vscodium/MachineLearning/Lab1/main.py:56: MatplotlibDeprecationWarning: vert: bool was deprecated in Matplotlib 3.11 and will be removed in 3.13. Use orientation: {'vertical', 'horizontal'} instead.
+  ax.boxplot(df[col].dropna(), vert=True)
+/home/leonid/Main/vscodium/MachineLearning/Lab1/main.py:56: MatplotlibDeprecationWarning: vert: bool was deprecated in Matplotlib 3.11 and will be removed in 3.13. Use orientation: {'vertical', 'horizontal'} instead.
+  ax.boxplot(df[col].dropna(), vert=True)
+/home/leonid/Main/vscodium/MachineLearning/Lab1/main.py:56: MatplotlibDeprecationWarning: vert: bool was deprecated in Matplotlib 3.11 and will be removed in 3.13. Use orientation: {'vertical', 'horizontal'} instead.
+  ax.boxplot(df[col].dropna(), vert=True)
+/home/leonid/Main/vscodium/MachineLearning/Lab1/main.py:56: MatplotlibDeprecationWarning: vert: bool was deprecated in Matplotlib 3.11 and will be removed in 3.13. Use orientation: {'vertical', 'horizontal'} instead.
+  ax.boxplot(df[col].dropna(), vert=True)
+/home/leonid/Main/vscodium/MachineLearning/Lab1/main.py:56: MatplotlibDeprecationWarning: vert: bool was deprecated in Matplotlib 3.11 and will be removed in 3.13. Use orientation: {'vertical', 'horizontal'} instead.
+  ax.boxplot(df[col].dropna(), vert=True)
+/home/leonid/Main/vscodium/MachineLearning/Lab1/main.py:56: MatplotlibDeprecationWarning: vert: bool was deprecated in Matplotlib 3.11 and will be removed in 3.13. Use orientation: {'vertical', 'horizontal'} instead.
+  ax.boxplot(df[col].dropna(), vert=True)
+/home/leonid/Main/vscodium/MachineLearning/Lab1/main.py:59: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show()
+
+Кол-во выбросов (IQR) по ключевым признакам:
+income: 11942
+loan_body: 5547
+annuity_payment: 6362
+goods_price: 12489
+days_birth: 0
+days_employed: 61381
+Удаляемые нечисловые признаки: ['contract_type_name', 'gender', 'own_car_flag', 'own_realty_flag', 'type_suite_name', 'income_type_name', 'education_type_name', 'family_status_name', 'housing_type_name', 'type_of_occupation', 'start_weekday_appr_process', 'type_of_organization', 'fondkapremon_mode', 'mode_house_type', 'mode_walls_material', 'emergency_state_mode']
+Удалено дубликатов: 0
+Выбросы обрезаны по квантилям 1%/99%
+
+Признаки с пропусками (61):
+Пропусков после обработки: 0
+Итоговый размер: (261384, 105)
+Размер Train: (182968, 104), Test: (78416, 104)
+Баланс классов в train: 0.0808
+Баланс классов в test:  0.0808
+Данные успешно стандартизированы!
+Форма X_train: (182968, 104)
+Форма y_train: (182968, 1)
+Итерация    0 | loss = 0.693147
+Итерация  100 | loss = 0.285904
+Итерация  200 | loss = 0.261934
+Итерация  300 | loss = 0.256692
+Итерация  400 | loss = 0.254981
+Итерация  500 | loss = 0.254302
+Итерация  600 | loss = 0.253995
+Итерация  700 | loss = 0.253840
+Итерация  800 | loss = 0.253751
+Итерация  900 | loss = 0.253694
+Итерация 1000 | loss = 0.253654
+Итерация 1100 | loss = 0.253623
+Итерация 1200 | loss = 0.253598
+Итерация 1300 | loss = 0.253577
+Итерация 1400 | loss = 0.253558
+Итерация 1500 | loss = 0.253541
+Итерация 1600 | loss = 0.253525
+Итерация 1700 | loss = 0.253511
+Итерация 1800 | loss = 0.253497
+Итерация 1900 | loss = 0.253484
+Итерация 1999 | loss = 0.253471
+/home/leonid/Main/vscodium/MachineLearning/Lab1/main.py:254: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show()
+
+Обучение завершено!
+Финальное значение loss: 0.253471
+
+===== Обучающая выборка (Train) =====
+Accuracy : 0.9193
+Precision: 0.5365
+Recall   : 0.0070
+F1-score : 0.0138
+ROC AUC  : 0.7332
+
+Матрица ошибок (Confusion Matrix):
+[[168102     89]
+ [ 14674    103]]
+
+Полный отчет классификации:
+              precision    recall  f1-score   support
+
+           0       0.92      1.00      0.96    168191
+           1       0.54      0.01      0.01     14777
+
+    accuracy                           0.92    182968
+   macro avg       0.73      0.50      0.49    182968
+weighted avg       0.89      0.92      0.88    182968
+
+
+===== Тестовая выборка (Test) =====
+Accuracy : 0.9191
+Precision: 0.4217
+Recall   : 0.0055
+F1-score : 0.0109
+ROC AUC  : 0.7332
+
+Матрица ошибок (Confusion Matrix):
+[[72035    48]
+ [ 6298    35]]
+
+Полный отчет классификации:
+              precision    recall  f1-score   support
+
+           0       0.92      1.00      0.96     72083
+           1       0.42      0.01      0.01      6333
+
+    accuracy                           0.92     78416
+   macro avg       0.67      0.50      0.48     78416
+weighted avg       0.88      0.92      0.88     78416
